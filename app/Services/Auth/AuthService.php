@@ -2,7 +2,7 @@
 
 namespace App\Services\Auth;
 
-use App\Exceptions\ModelNotFoundException;
+use App\Exceptions\ModelNotFoundExceptionHandler;
 use App\Models\User;
 use App\Repositories\Auth\AuthRepositoryInterface;
 use Symfony\Component\HttpFoundation\ParameterBag;
@@ -19,11 +19,11 @@ class AuthService implements AuthServiceInterface
         return $this->repository->register($data);
     }
 
-    public function getUserByEmail(string $email): User
+    public function getUserByEmail(string $email): ?User
     {
         $user = $this->repository->getUserByEmail($email);
 
-        ModelNotFoundException::checkModelExists($user, 404, 'User not found.');
+        ModelNotFoundExceptionHandler::checkModelExists($user, 404, 'User not found.');
 
         return $user;
     }

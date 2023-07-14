@@ -17,7 +17,7 @@ class AuthRepository implements AuthRepositoryInterface
         return $this->model->create($data->all());
     }
 
-    public function getUserByEmail(string $email): User
+    public function getUserByEmail(string $email): ?User
     {
         return $this->model->where('email', $email)->first();
     }

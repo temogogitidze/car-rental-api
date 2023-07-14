@@ -9,5 +9,5 @@ interface AuthServiceInterface
 {
     public function register(ParameterBag $data): User;
 
-    public function getUserByEmail(string $email): User;
+    public function getUserByEmail(string $email): ?User;
 }

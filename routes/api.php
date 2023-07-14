@@ -18,7 +18,7 @@ Route::group([
 Route::group([
     'middleware' => 'guest'
 ], function () {
-    Route::prefix('users/')->group(function () {
+    Route::prefix('auth/')->group(function () {
         Route::post('register', [AuthController::class, 'register'])->name('user.register');
         Route::post('login', [AuthController::class, 'login'])->name('user.login');
     });
