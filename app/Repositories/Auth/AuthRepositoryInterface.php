@@ -8,4 +8,6 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 interface AuthRepositoryInterface
 {
     public function register(ParameterBag $data): User;
+
+    public function getUserByEmail(string $email): User;
 }

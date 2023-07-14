@@ -17,8 +17,8 @@ class RegisterRequest extends FormRequest
     {
         // TODO: add min password validation
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'unique:users', 'max:255'],
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users|max:255',
             'password' => new PasswordRule()
         ];
     }
