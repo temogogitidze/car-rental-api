@@ -2,7 +2,19 @@
 
 namespace App\Repositories\Auth;
 
-class AuthRepository
+use App\Models\User;
+use Symfony\Component\HttpFoundation\ParameterBag;
+
+class AuthRepository implements AuthRepositoryInterface
 {
+
+    public function __construct(private User $model)
+    {
+    }
+
+    public function register(ParameterBag $data)
+    {
+        return $this->model->create($data->all());
+    }
 
 }
