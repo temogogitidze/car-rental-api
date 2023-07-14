@@ -17,4 +17,5 @@ class AuthService implements AuthServiceInterface
     {
         return $this->repository->register($data);
     }
+
 }
