@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Resources\Auth\UserResource;
 use App\Services\Auth\AuthServiceInterface;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
@@ -14,8 +15,8 @@ class AuthController extends Controller
     {
     }
 
-    public function register(RegisterRequest $request)
+    public function register(RegisterRequest $request): UserResource
     {
-        $this->service->register(new ParameterBag($request->validated()));
+        return UserResource::make($this->service->register(new ParameterBag($request->validated())));
     }
 }

@@ -12,7 +12,7 @@ class AuthRepository implements AuthRepositoryInterface
     {
     }
 
-    public function register(ParameterBag $data)
+    public function register(ParameterBag $data): User
     {
         return $this->model->create($data->all());
     }
